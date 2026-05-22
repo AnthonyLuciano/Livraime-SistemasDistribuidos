@@ -25,8 +25,8 @@ Opcionalmente você pode usar o Bun para o frontend se preferir, mas as instruç
 Clone o repositório:
 
 ```bash
-git clone https://github.com/AnthonyLuciano/Livraime.git
-cd Livraime
+git clone https://github.com/AnthonyLuciano/Livraime-SistemasDistribuidos.git
+cd /Livraime-SistemasDistribuidos
 ```
 
 ### Backend (API)
