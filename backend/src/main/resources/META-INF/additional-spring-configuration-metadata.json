@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "spring.external-datasource.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.external-datasource.url'"
+  },
+  {
+    "name": "spring.external-datasource.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.external-datasource.username'"
+  },
+  {
+    "name": "spring.external-datasource.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.external-datasource.password'"
+  },
+  {
+    "name": "spring.external-datasource.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.external-datasource.driver-class-name'"
+  }
+]}
