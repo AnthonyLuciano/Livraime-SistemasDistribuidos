@@ -44,9 +44,14 @@ export function LoginForm() {
       onError: (error) => {
         console.log("Erro:", error);
 
+        const defaultMessage = "E-mail ou senha inválidos.";
+        const errorMessage = axios.isAxiosError(error)
+          ? error.response?.data?.message || defaultMessage
+          : "Erro desconhecido";
+
         toast({
           title: "Erro ao realizar login",
-          description: axios.isAxiosError(error) ? (error.response.data as LoginResponse).message : "Erro desconhecido",
+          description: errorMessage,
           variant: "destructive",
         });
       },
