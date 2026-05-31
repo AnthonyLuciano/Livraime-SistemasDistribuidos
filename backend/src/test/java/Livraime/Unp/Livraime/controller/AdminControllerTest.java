@@ -53,7 +53,7 @@ class AdminControllerTest {
     @BeforeEach
     void setUp() {
         controller = new AdminController(subscriptionRepository, donationRepository, partnerRepository,
-                usuarioRepository);
+                usuarioRepository, null);
     }
 
     @Test

@@ -36,6 +36,7 @@ import Livraime.Unp.Livraime.repositorio.DonationRepository;
 import Livraime.Unp.Livraime.repositorio.PartnerRepository;
 import Livraime.Unp.Livraime.repositorio.SubscriptionRepository;
 import Livraime.Unp.Livraime.repositorio.UsuarioRepository;
+import Livraime.Unp.Livraime.servico.SupabaseSyncService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
@@ -49,15 +50,18 @@ public class AdminController {
     private final DonationRepository donationRepository;
     private final PartnerRepository partnerRepository;
     private final UsuarioRepository usuarioRepository;
+    private final SupabaseSyncService supabaseSyncService;
 
     public AdminController(SubscriptionRepository subscriptionRepository,
             DonationRepository donationRepository,
             PartnerRepository partnerRepository,
-            UsuarioRepository usuarioRepository) {
+            UsuarioRepository usuarioRepository,
+            SupabaseSyncService supabaseSyncService) {
         this.subscriptionRepository = subscriptionRepository;
         this.donationRepository = donationRepository;
         this.partnerRepository = partnerRepository;
         this.usuarioRepository = usuarioRepository;
+        this.supabaseSyncService = supabaseSyncService;
     }
 
     private List<Admin> admins = new ArrayList<>();
@@ -216,6 +220,13 @@ public class AdminController {
                     return ResponseEntity.ok("Usuário reativado com sucesso.");
                 })
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping("/sync")
+    @Operation(summary = "Sincronizar banco de dados com Supabase")
+    public ResponseEntity<String> sincronizarBancoDeDados() {
+        supabaseSyncService.syncAll();
+        return ResponseEntity.ok("Sincronização iniciada.");
     }
 
     /**
