@@ -36,3 +36,4 @@ backend/data/database.mv.db
 frontend/.env
 frontend/.env.*
 backend/data/database.trace.db
+pilares.md
